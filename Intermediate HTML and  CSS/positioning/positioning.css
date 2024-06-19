@@ -1,0 +1,43 @@
+/* body {
+  border: 1px solid #000;
+}
+div {
+  width: 100px;
+  height: 100px;
+  background-color: rebeccapurple;
+}
+span {
+  position: relative;
+}
+.one{
+  background-color: rgb(26, 128, 153);
+  position: relative;
+  top: 10px;
+  left: 80px;
+  z-index: 1;
+
+}
+.two{
+  background-color: rebeccapurple;
+  position: absolute;
+  top: 40px; */
+/* } */
+h2 {
+  background: rgba(40, 50, 200, 0.4);
+  position: sticky;
+}
+.one{
+  top: 0px;
+}
+.two {
+  top: 20px;
+}
+.three {
+  top: 40px;
+}
+.four{
+  top: 60px;
+}
+.five{
+  top: 80px;
+}
