@@ -1,0 +1,25 @@
+:root{ /* use root element for general costom properties */
+  --red-color: red;
+  --blue-color: blue;
+  --orange-color: orange;
+  --cost-padding: clamp(20px,5vw,25px);
+  --fallback-padding:clamp(40px,10vw,50px);
+  --dark:#59869c;
+  --light:#a89494;
+}
+.para1{
+  color: var(--red-color);
+}
+.para3{
+  color: var(--orange-color);
+}
+.para2 {
+  background-color: var(--blue-color, var(--orange-color,purple));
+  padding: var(--cost-padding , var(--fallback-padding,100px));
+}
+.light{
+  background: var(--light);
+}
+.dark{
+  background:var(--dark);
+}

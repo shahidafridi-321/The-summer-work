@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    :root{
+      font-family: Arial, Helvetica, sans-serif;
+      --dark-bg-color:#59869c;
+      --dark-text-color:#f2f2f2;
+      --light-bg-color:f2f2f2;
+      --light-text-color:#59869c;
+    }
+    .btn{
+      padding: 0.5rem 2rem;
+      border-radius: 25px 0;
+      background: lightpink;
+      border: none;
+      cursor: pointer;
+      transition: 0.5s;
+      font-weight: bolder;
+    }
+    .btn:hover{
+      margin: 5px;
+      transition: 0.5s;
+    }
+    
+    .light {
+      background: var(--light-bg-color);
+      color: var(--light-text-color);
+    }
+    .dark {
+      background-color: var(--dark-bg-color);
+      color: var(--dark-text-color);
+    }
+    .btn-dark{
+      background-color: #000;
+      color: lightpink;
+      border-radius: 0 25px;
+
+    }
+
+  </style>
+</head>
+<body class="container light">
+  <h2>The CSS costom Properties</h2>
+  <p>
+    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odio perferendis, nihil magni ducimus esse autem vero vitae harum in, minima laboriosam numquam assumenda eos iure cupiditate enim eaque porro ipsam molestiae qui. Praesentium minima consectetur quidem, molestias esse ipsam nemo quas voluptate, animi quisquam error unde aperiam molestiae reprehenderit assumenda illum? Aperiam repellat doloremque optio libero odit quod! Repellendus quibusdam at perspiciatis quis. Omnis beatae consectetur nam cupiditate! Velit culpa consequatur quia fuga! Laboriosam voluptate fuga eius labore quaerat aliquam reiciendis obcaecati commodi perspiciatis tenetur qui magni quidem neque quibusdam id nisi itaque corporis, fugit dolorem quisquam quia maiores mollitia repudiandae. Obcaecati hic corporis libero doloremque sunt quia eaque quidem sapiente ducimus repudiandae voluptas nisi quas, totam dicta eos ex repellat esse culpa perspiciatis! Voluptates nisi a, ad vero cum consequuntur eligendi possimus corrupti magni ipsa quibusdam porro laboriosam deserunt explicabo officia unde, iusto iure nostrum rerum cupiditate reiciendis exercitationem recusandae vel voluptatibus. Illo quibusdam quis quidem dolores expedita. Laudantium quo, consequatur vitae dolor unde maxime accusamus sint doloribus quasi a maiores incidunt nulla aliquid officiis sapiente aliquam quibusdam enim aut corporis. Doloremque facilis voluptas amet ipsam incidunt minima illum, quis odio, enim neque cumque voluptatem odit ad, excepturi ullam.
+  </p>
+  <button class="btn">Toggle Me</button>
+</body>
+<script>
+  let btn = document.querySelector('.btn');
+  let body = document.querySelector('body');
+
+  btn.addEventListener('click',theme);
+
+
+ function theme(){
+  body.classList.toggle('dark');
+  btn.classList.toggle('btn-dark');
+ }
+</script>
+</html>
