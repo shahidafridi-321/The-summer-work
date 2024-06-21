@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <input type="search" name="" id="">
+  <input type="tel" name="" id="">
+  <input type="url" name="" id="">
+  <input type="number" name="" id="" max="10" min="2">
+  <input type="range" name="" id="price" min="100" max="2000" step="10" value="200">
+  <output id="display" for="price"></output>
+  <br>
+<input type="datetime-local" name="" id="">
+<input type="month" name="" id="">
+<input type="time" name="" id="">
+<input type="week" name="" id="">
+<br>
+<input type="color" name="" id="">
+<select  name="" id="">
+  <option value="">hsh</option>
+  <option value="">hsh</option>
+  <option value="" selected>hswwh</option>
+</select>
+  
+</body>
+<script>
+  let price = document.getElementById('price');
+  let output = document.getElementById('display');
+  output.textContent = price.value;
+
+  price.addEventListener('input',()=>{
+    output.textContent = price.value;
+  });
+</script>
+</html>
