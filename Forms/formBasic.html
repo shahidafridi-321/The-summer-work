@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HTML Forms</title>
+</head>
+<body>
+  <form action="shahidrahmansr87@gmail.com" method="post">
+
+    <label for="first_name">First Name</label>
+    <input type="text" id="first_name" placeholder="Shahi...."><br>
+
+    <label for="email">Email Address</label>
+    <input type="email" name="email" id="email" placeholder="example@gmail.com"><br>
+
+    <label for="passward">Password</label>
+    <input type="password" name="passward" id="passward"> <br>
+
+    <label for="salary">Salary</label>
+    <input type="number" name="salary" id="salary"><br>
+
+    <label for="dob">Date of Birth</label>
+    <input type="date" name="dob" id="dob"> <br>
+
+    <label for="comment">Comment :</label><br>
+    <textarea rows="5" cols="50" id="comment" name="comment" placeholder="Tell Some thing about your self"></textarea> <br>
+
+    <!-- selection from multipule given chooises -->
+    <label for="countries">Select Your Country</label>
+    <select name="countries" id="countries">
+      <option value="--" selected>--</option>
+      <option value="pakistan">Pakistan</option>
+      <option value="india">India</option>
+      <option value="afghanistan">Afghanistan</option>
+      <option value="iran">Iran</option>
+    </select>
+
+    <label for="team">Favourate Cricket player </label>
+    <select name="team" id="team">
+      <optgroup label="batsmen">
+        <option value="babar">Babar</option>
+        <option value="rizwan">Rizwan</option>
+        <option value="fakhar">Fakhar</option>
+      </optgroup>
+
+      <optgroup label="alrounders">
+
+        <option value="shadab">Shadab</option>
+        <option value="imad">Imad</option>
+        <option value="nawaz">Nawaz</option>
+      </optgroup>
+
+      <optgroup label="bowlwers">
+        <option value="shaheen">Shaheen</option>
+        <option value="naseem">Naseem</option>
+        <option value="amir">Amir</option>
+      </optgroup>
+    </select><br>
+
+    <label for="player-type">What is your telent in : </label>
+    <input type="radio" id="batsmen" name="player" value="batsmen">
+    <label for="batsmen">Batsmen</label>
+
+    <input type="radio" id="bowlwer" name="player" value="bowlwer">
+    <label for="bowlwer">Bowler</label>
+
+    <input type="radio" id="alrounder" name="player" value="alrounder">
+    <label for="alrounder">Alrounder</label> <br>
+
+    <label for="gender">Gender </label>
+    <input type="radio" name="gender" id="male" value="male" checked>
+    <label for="male">Male</label>
+    <input type="radio" name="gender" id="female" value="female">
+    <label for="female">Female</label><br>
+
+    <label for="adult">Are you 18? </label>
+    <input type="radio" name="adult" id="yes" value="yes">
+    <label for="yes">Yes</label>
+    <input type="radio" name="adult" id="no" value="no">
+    <label for="no">No</label> <br>
+
+    <h2>What is your Favourite Food ?</h2>
+    <input type="checkbox" name="favfood" id="dal" value="dal">
+    <label for="dal">Dal</label>
+    <input type="checkbox" name="favfood" id="chawal" value="chawal">
+    <label for="chawal">Chawal</label>
+    <input type="checkbox" name="favfood" id="chicken" value="chicken">
+    <label for="chicken">Chicken</label><br>
+
+    <input type="checkbox" name="news-letter" id="newsletter" checked>
+    <label for="newsletter">Do you want to send you notification for our new news letters?</label>
+
+    <button type="reset">Reset</button>
+  </form>
+
+
+  <div>
+    <label for="name">What is your name ?</label>
+    <input type="text" name="" id="name">
+  </div>
+  <button class="greeting-btn">Greeting</button>
+  <h1 class="greeting-output"></h1>
+  <h2 class="dateofbirth"></h2>
+</body>
+
+
+<script>
+  let name = document.querySelector('#name');
+  let btn = document.querySelector('.greeting-btn');
+  let output = document.querySelector('.greeting-output');
+
+  let dob = document.querySelector('#dob');
+  let dobDisplay = document.querySelector('.dateofbirth');
+
+  btn.addEventListener('click',() => {
+    output.innerText = `Hello ${name.value}`;
+    dobDisplay.textContent = `You were burn on ${dob.value}`;
+  });
+</script>
+</html>
