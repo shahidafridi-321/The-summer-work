@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Using :valid And :invalid pseudo classes</title>
+  <style>
+    input {
+  border: 2px solid #000;
+  margin-bottom: 15px;
+  padding: 5px;
+  border-radius: 5px;
+}
+input:focus{
+  outline: none;
+}
+input:invalid {
+  border-color: red;
+}
+
+input:valid {
+  border-color: green;
+}
+  </style>
+</head>
+<body>
+  
+
+<form action="#" method="get">
+  <div>
+    <label for="email">Email</label>
+  </div>
+  <input type="email" id="email" name="email" required>
+
+  <div>
+    <label for="website">Website</label>
+  </div>
+  <input type="url" id="website" name="website" required>
+
+  <div>
+    <button type="submit">Submit</button>
+  </div>
+</form>
+
+</body>
+</html>
