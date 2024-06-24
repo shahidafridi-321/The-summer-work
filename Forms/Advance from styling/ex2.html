@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <label for="banana">Banana</label>
+  <input type="checkbox" name="" id="banana">
+
+  <label for="mango">Mango</label>
+  <input type="checkbox" name="" id="mango">
+  <label for="mango">Graphes</label>
+  <input type="checkbox" name="" id="mango" disabled>
+</body>
+<style>
+  input{
+    appearance: none;
+  }
+  input[type ='checkbox']{
+    position: relative;
+    width: 16px;
+    height: 16px;
+    border: 1px solid #000;
+    vertical-align: -5px;
+    color: red;
+  }
+  input[type='checkbox']::before{
+    content: '✔';
+    font-size: 20px;
+    position: absolute;
+    top: -5px;
+    right: -4px;
+    visibility: hidden;
+  }
+  input[type='checkbox']:checked::before{
+    visibility: visible;
+  }
+  input[type='checkbox']:disabled{
+    background: grey;
+  }
+</style>
+</html>
