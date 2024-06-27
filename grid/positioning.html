@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Positioning in grid</title>
+  <style>
+    .container {
+      display:inline-grid;
+      grid-template: 40px 40px 40px 40px 40px/40px 40px 40px 40px 40px;
+      background-color: lightblue;
+      grid-template-areas: "living-room living-room living-room living-room living-room"
+      ". . . . ."
+      "bedroom bedroom bathroom kitchen kitchen"
+      "bedroom bedroom bathroom kitchen kitchen"
+      "closet closet . machine machine"
+    
+    }
+    .room {
+      border: 1px solid;
+      font-size: 50%;
+      text-align: center;
+    }
+    #living-room{
+      /* grid-column-start: 1;
+      grid-column-end: 6;
+      grid-area: 1/1/3/6; */
+
+      grid-area: living-room;
+    }
+    
+  #kitchen{
+  /* grid-column: 4 / 6;
+  grid-row: 3 / 6; */
+  grid-area: kitchen;
+}
+
+#bedroom {
+  /* grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 3;
+  grid-row-end: 5; */
+  grid-area: bedroom;
+}
+
+#bathroom {
+  /* grid-column-start: 3;
+  grid-column-end: 4;
+  grid-row-start: 3;
+  grid-row-end: 6; */
+  grid-area: bathroom;
+}
+
+#closet {
+  /* grid-column: 1/3;
+  grid-row-start: 5;
+  grid-row-end: 6; */
+
+  grid-area: closet;
+}
+#machine{
+  grid-area: 2/3/3/4;
+  grid-area: machine;
+}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="room" id="living-room">Living Room</div>
+    <div class="room" id="kitchen">Kitchen</div>
+    <div class="room" id="bedroom">Bedroom</div>
+    <div class="room" id="bathroom">Bathroom</div>
+    <div class="room" id="closet">Closet</div>
+    <div class="room" id="machine">Machine</div>
+  </div>
+  </div>
+   
+</body>
+</html>

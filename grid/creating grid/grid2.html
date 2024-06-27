@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body{
+      box-sizing: border-box;
+    }
+    .container {
+      display: grid;
+      grid-template-columns:100px 100px 100px;
+      grid-template-rows: 100px 100px 100px;
+     
+    }
+    .item {
+      border: 1px solid #000;
+      background: pink;
+    }
+    .last-clm{
+      background: hotpink;
+    }
+    .first-row{
+      background: green;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="item first-row"></div>
+    <div class="item first-row"></div>
+    <div class="item first-row last-clm"></div>
+    <div class="item"></div>
+    <div class="item"></div>
+    <div class="item last-clm"></div>
+    <div class="item"></div>
+    <div class="item"></div>
+    <div class="item last-clm"></div>
+  </div>
+</body>
+</html>
