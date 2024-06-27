@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <nav>
+    <ul class="nav-list">
+      <li class="item">About</li>
+      <li class="item">Menu</li>
+      <li class="item">Home</li>
+      <li class="item">Contact</li>
+      <li class="item">Info</li>
+      <li class="item">More</li>
+      <li class="item">Apply</li>
+    </ul>
+  </nav>
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In provident delectus, repudiandae unde amet velit tenetur esse vero quidem quod. Exercitationem minus nihil voluptatum temporibus eum sapiente accusamus nemo, iste dolore blanditiis eos provident itaque saepe delectus eligendi deserunt quisquam eveniet quibusdam! Unde aliquam quos eligendi accusantium. Ut nobis nulla facere itaque, nisi culpa tempore corporis totam sapiente nam ex fugit, rem amet hic sed et veritatis atque voluptatum illo laboriosam deleniti! Neque eveniet itaque odio corporis odit ex velit quo, molestias excepturi esse nihil, natus et maxime numquam sunt maiores suscipit omnis culpa voluptate saepe facilis ratione totam a aut. Vel voluptate voluptatum blanditiis autem id sapiente reiciendis impedit harum voluptatibus ad accusamus eius accusantium et consectetur exercitationem magnam, fugit libero delectus non sed. Nesciunt, dolorum labore sapiente ipsum quasi molestias laboriosam dicta officiis vero ratione repellendus error, explicabo fugiat nisi cupiditate qui quos et accusantium animi. Est dolor ipsa totam libero fugiat, aliquid quidem maiores eveniet natus laboriosam. Incidunt animi, porro ex qui repellendus a placeat tempore eos. Ab magni quam recusandae dolore iure cum voluptatum magnam! Iste nisi, exercitationem animi cumque aliquam culpa, illo recusandae similique incidunt eveniet eaque non sint. Distinctio at perspiciatis cum, placeat quidem atque unde sunt voluptatem eos non voluptate id ducimus maxime quod mollitia facilis est neque quo officiis beatae architecto nesciunt, quam quas corporis. Labore provident temporibus quae, ad omnis asperiores? Beatae quam ipsam illo, consectetur officiis, neque tempore voluptates suscipit ullam sed quae quis aliquam nobis sunt? Vitae, blanditiis ducimus dolor nemo dolorem fuga vero beatae non. Veritatis earum error voluptate commodi, harum eligendi doloribus quidem ipsum porro excepturi explicabo magnam repellat facere aspernatur vero aliquam? Fugit ratione nesciunt assumenda voluptatem pariatur doloribus, cumque autem, eos reprehenderit ipsa a. Accusantium esse recusandae delectus soluta ab enim, aliquid cupiditate dicta vitae.</p>
+</body>
+<style>
+  
+  @font-face {
+    font-family: myfont;
+    src: url(fonts/alex-brush/AlexBrush-Regular.ttf);
+  }
+  html {
+    font-size: clamp(1rem, 0.75rem + 1.5vw, 2rem);
+  }
+  p{
+    max-inline-size: 50rem;
+  }
+  body {
+    margin: 0;
+    padding: 0;
+
+  }
+  .nav-list {
+    display: flex;
+    justify-content: space-between;
+    background: #eee;
+    height: 6vw;
+    align-items: center;
+    max-width: 100%;
+    margin: 0 auto;
+
+  }
+  .item {
+    list-style: none;
+    padding: 0 30px;
+  }
+  p{
+    /* font-family: myfont; */
+    padding: 0 30px;
+    word-wrap: break-word;
+    text-overflow: ellipsis;
+
+  }
+  @media (max-width:500px){
+    .nav-list{
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      height: auto;
+      padding: 15px 0;
+      align-items: start;
+  }
+  }
+  
+</style>
+</html>

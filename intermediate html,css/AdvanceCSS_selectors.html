@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Advance Css Selectors</title>
+</head>
+
+<body>
+  <iframe height="300" style="width: 100%;" scrolling="no" title="Untitled" src="https://codepen.io/shahidafridi-321/embed/preview/JjVLRqo?default-tab=html" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+    See the Pen <a href="https://codepen.io/shahidafridi-321/pen/JjVLRqo">
+    Untitled</a> by shahidafridi-321 (<a href="https://codepen.io/shahidafridi-321">@shahidafridi-321</a>)
+    on <a href="https://codepen.io">CodePen</a>.
+  </iframe>
+  <input type="text" placeholder="search">
+  <input type="text" name="" id="">
+  <ul>
+    <li>item 01</li>
+    <li>item 02</li>
+    <li>item 03</li>
+    <li>item 04</li>
+    <li>item 05</li>
+    <li>item 06</li>
+  </ul>
+</body>
+<style>
+  ul>li::before {
+    content: 'this is before the ';
+  }
+
+  ul::after {
+    content: 'this is done';
+  }
+
+  ul>li::selection {
+    color: pink;
+    font-size: 60px;
+    font-weight: bold;
+  }
+
+  ul>li:nth-child(odd)::first-letter {
+    color: blue;
+    font-size: 50px;
+    text-transform: capitalize;
+  }
+
+  ul>li::marker {
+    color: rgb(0, 255, 34);
+    font-size: 50px;
+  }
+
+  input {
+    border-color: red;
+  }
+
+  input:placeholder-shown {
+    background: #000;
+    border: 1px solid #e20f0f;
+  }
+
+  input:focus {
+    outline: none;
+  }
+</style>
+
+</html>
