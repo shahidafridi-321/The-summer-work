@@ -24,23 +24,24 @@ function createManager(name, age, salary, department) {
 }
 
 function createDeveloper(name, age, salary, progLanguage) {
-  const employee = createEmployee(name, age, salary);
-  return {
-    ...employee,
-    progLanguage,
+  const user = createEmployee(name, age, salary);
+  return Object.assign( //use object asign method 
+    {},
+    user,
+    {progLanguage,
     getProgLanguage() {
       return `The developer loves to program in ${this.progLanguage}`;
     },
     writeCode() {
       console.log('It is fun to write code and I love doing it');
-    }
-  };
+    }}
+  )
 }
 
 // Testing the implementation
 let developer1 = createDeveloper('Shahid', 23, 2000, 'JavaScript');
-console.log(developer1.getProgLanguage());
-developer1.getDetails();
+console.log(developer1);
+// developer1.getDetails();
 
 let manager1 = createManager('Alice', 40, 90000, 'HR');
 console.log(manager1.getDepartment());
