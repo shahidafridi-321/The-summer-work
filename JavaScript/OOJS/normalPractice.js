@@ -3,6 +3,7 @@ function makeAdding(firstNumber) {
 
   function result(lastnumber) {
     const second = lastnumber;
+
     return first + second;
   }
   return result(5);
