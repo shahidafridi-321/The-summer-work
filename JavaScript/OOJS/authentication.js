@@ -60,6 +60,7 @@ function authentication(name, password, data) {
   };
 
   return {
+    data,
     logIn,
     logOut,
     changePassword,
@@ -75,3 +76,5 @@ user1.logIn();
 // user1.changePassword();
 console.log(data);
 user1.logOut();
+
+console.log(user1.data);
