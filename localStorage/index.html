@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <p class="names"></p>
+  <script>
+    let para = document.querySelector('.names');
+    let someNames = 'shahid khan afridi and ali jan koko and umair khan and ishaq';
+
+    localStorage.setItem('names',someNames);
+    para.textContent = localStorage.getItem('names');
+    console.log(localStorage.getItem('names'));
+
+    let user = {
+      name:'shahid',
+      get getName(){
+        return this.name;
+      },
+    }
+    function User(name,age){
+      this.name = name;
+      this.age = age;
+
+    }
+    // console.log(user.getName);
+    // let u1 = new User('shhah',23);
+    // User.prototype.getName = function() {return this.name};
+    // console.log(u1.getName());
+
+  let Count = {
+    count:0,
+    counter(){
+      return this.count++
+    }
+  }
+
+
+  Count.counter();
+  Count.counter();
+  Count.counter();
+  Count.counter();
+  Count.counter();
+  console.log(Count.count);
+  </script>
+</body>
+</html>
