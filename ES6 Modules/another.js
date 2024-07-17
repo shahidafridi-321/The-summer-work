@@ -1,2 +1,2 @@
-import  functionOne  from './functionOne';
+import  {functionOne}  from './functionOne.js';
 functionOne();
