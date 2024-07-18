@@ -1,20 +1,13 @@
-import _ from 'lodash';
+import _ from 'lodash'
+// import {myName} from './myName'; For NAmed exports
+import myName from './myName'; // For defaul exports
+import { funcOne, funcTwo} from './namedExports';
+function component(){
+  const element = document.createElement('div');
 
+  element.textContent = myName('ShaHid') + ' ' + funcOne() + ' ' + funcTwo();
 
- function component() {
-   const element = document.createElement('div');
+  return element
+}
 
-  // Lodash, now imported by this script
-   element.innerHTML = _.join(['shahid','afridi'], ' ');
-
-   return element;
- }
- function createHt(){
-  const h1 = document.createElement('h1');
-  h1.textContent = _.join(['shshhshshsh'],' ');
-
-  return h1
- }
-
- document.body.appendChild(component());
- document.body.appendChild(createHt());
+document.body.appendChild(component());

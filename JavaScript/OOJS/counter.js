@@ -6,7 +6,7 @@ function counter(){
   function displayCounter() {
     console.log(number);
   }
-  return {displayCounter,inc};
+  return {displayCounter,inc,getnumber:()=>number};
 }
 
 
@@ -15,3 +15,4 @@ counter1.inc();
 counter1.inc();
 counter1.inc();
 counter1.displayCounter();
+console.log(counter1.getnumber());
