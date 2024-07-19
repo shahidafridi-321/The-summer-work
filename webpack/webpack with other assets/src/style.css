@@ -2,7 +2,7 @@
 
   font-family: 'MyFont';
 
-  src: url('./RobotoMono-ExtraLight.ttf') format('ttf');
+  src: url('./RobotoMono-ExtraLight.ttf');
 
   font-weight: 900;
 
