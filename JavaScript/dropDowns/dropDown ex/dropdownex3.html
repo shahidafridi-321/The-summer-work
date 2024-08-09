@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 20px;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      .nav-container {
+        position: relative;
+      }
+      .nav-bar,
+      .mul-nav {
+        position: absolute;
+        top: calc(100% + 0.25rem);
+        left: 0;
+        width: 100px;
+        text-align: center;
+        background: #f1e6e6;
+        border-radius: 6px;
+        box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.3);
+        transform: translateY(0);
+        transform: translateX(0);
+
+        transition: all 0.3s;
+      }
+      .nav-list,
+      .mul-nav {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      .nav-list li {
+        /* border: 1px solid #000; */
+        padding: 5px 10px;
+      }
+      .nav-list li:hover {
+        background: #cabdbd;
+      }
+      .nav-list li a {
+        text-decoration: none;
+        color: black;
+      }
+      .menu-hidden {
+        opacity: 0;
+        transform: translateY(-20px);
+        transform: translateX(-100px);
+        /* transform: skew(-30deg); */
+        transition: all 0.5s;
+      }
+      .menu {
+        width: 100px;
+        height: 35px;
+      }
+      .mul-val {
+        position: relative;
+      }
+      .mul-nav {
+        position: absolute;
+        top: calc(80%);
+        left: calc(100% + 0.25rem);
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="nav-container">
+        <button class="menu">Menu</button>
+        <nav class="nav-bar">
+          <ul class="nav-list">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">About</a></li>
+            <li>
+              <a href="#" class="mul-val">Select</a>
+              <div class="mul-container">
+                <ul class="mul-nav">
+                  <li>Banana</li>
+                  <li>Apple</li>
+                  <li>Mango</li>
+                  <li>Carrot</li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <script>
+      let menuBtn = document.querySelector(".menu");
+      let navBar = document.querySelector(".nav-bar");
+      let seletBtn = document.querySelector(".mul-val");
+      let innerNavBar = document.querySelector(".mul-container");
+
+      menuBtn.addEventListener("click", () => {
+        navBar.classList.toggle("menu-hidden");
+      });
+
+      seletBtn.addEventListener("click", () => {
+        innerNavBar.classList.toggle("menu-hidden");
+      });
+    </script>
+  </body>
+</html>
