@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background-color: #333;
+        font-family: Arial, sans-serif;
+      }
+
+      .carousel-container {
+        perspective: 1000px;
+      }
+
+      .carousel {
+        width: 300px;
+        height: 200px;
+        position: relative;
+        transform-style: preserve-3d;
+        transition: transform 1s;
+      }
+
+      .carousel-item {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.5rem;
+        color: white;
+        backface-visibility: hidden;
+        border-radius: 10px;
+      }
+
+      /* Center item */
+      .center {
+        background-color: lightcoral;
+        transform: translateZ(200px); /* Center is pushed forward */
+      }
+
+      /* Left item */
+      .left {
+        background-color: lightblue;
+        transform: rotateY(60deg) translateX(-150px) translateZ(100px); /* Rotate and move left item */
+      }
+
+      /* Right item */
+      .right {
+        background-color: lightgreen;
+        transform: rotateY(-60deg) translateX(150px) translateZ(100px); /* Rotate and move right item */
+      }
+    </style>
+    <title>3D Box Carousel</title>
+  </head>
+  <body>
+    <div class="carousel-container">
+      <div class="carousel">
+        <div class="carousel-item center">Center</div>
+        <div class="carousel-item left">Left</div>
+        <div class="carousel-item right">Right</div>
+      </div>
+    </div>
+    <script>
+      const carousel = document.querySelector(".carousel");
+      let angle = 0;
+
+      function rotateCarousel(direction) {
+        angle += direction * 120; // Rotate by 120 degrees in the given direction
+        carousel.style.transform = `rotateY(${angle}deg)`;
+
+        // Reorder classes for left, center, right
+        const items = document.querySelectorAll(".carousel-item");
+        if (direction === 1) {
+          items[0].classList.replace("center", "left");
+          items[1].classList.replace("right", "center");
+          items[2].classList.replace("left", "right");
+        } else {
+          items[0].classList.replace("center", "right");
+          items[1].classList.replace("left", "center");
+          items[2].classList.replace("right", "left");
+        }
+      }
+
+      // Rotate the carousel every 3 seconds automatically
+      setInterval(() => rotateCarousel(1), 3000);
+    </script>
+  </body>
+</html>
