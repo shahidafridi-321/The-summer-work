@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .dropdown {
+        position: relative;
+        display: inline-block;
+      }
+
+      .dropdown-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: white;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        min-width: 150px;
+      }
+
+      .dropdown-menu li {
+        padding: 10px;
+      }
+
+      .dropdown-menu li a {
+        text-decoration: none;
+        color: black;
+        display: block;
+      }
+
+      .dropdown-menu li:hover {
+        background-color: #a59d9d;
+      }
+
+      .dropdown-toggle.active + .dropdown-menu {
+        display: block;
+      }
+      @media (max-width: 600px) {
+        .dropdown-menu {
+          position: static;
+          box-shadow: none;
+          width: 100%;
+        }
+
+        .dropdown-menu li {
+          padding: 20px;
+          border-bottom: 1px solid #ddd;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="dropdown">
+      <button
+        class="dropdown-toggle"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        Menu
+      </button>
+      <ul class="dropdown-menu" role="menu">
+        <li><a href="#" role="menuitem">Item 1</a></li>
+        <li><a href="#" role="menuitem">Item 2</a></li>
+        <li><a href="#" role="menuitem">Item 3</a></li>
+      </ul>
+    </div>
+
+    <script>
+      const dropdownToggle = document.querySelector(".dropdown-toggle");
+      const dropdownMenu = document.querySelector(".dropdown-menu");
+
+      dropdownToggle.addEventListener("click", () => {
+        dropdownMenu.classList.toggle("hidden");
+        dropdownToggle.classList.toggle("active");
+        dropdownToggle.setAttribute(
+          "aria-expanded",
+          dropdownToggle.classList.contains("active")
+        );
+      });
+
+      document.addEventListener("click", (event) => {
+        if (
+          !dropdownToggle.contains(event.target) &&
+          !dropdownMenu.contains(event.target)
+        ) {
+          dropdownMenu.classList.add("hidden");
+          dropdownToggle.classList.remove("active");
+          dropdownToggle.setAttribute("aria-expanded", "false");
+        }
+      });
+    </script>
+  </body>
+</html>
