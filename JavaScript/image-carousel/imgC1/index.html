@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Image Carousel</title>
+    <style>
+      body {
+        box-sizing: border-box;
+        margin: 0 auto;
+        padding: 0;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      .content-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .image-carousel-container {
+        width: 200px;
+        height: 200px;
+        border: 1px solid #000;
+      }
+      .carousel-img {
+        width: 100%;
+        height: 100%;
+        /* aspect-ratio: 1/1; */
+        overflow: hidden;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main-container">
+      <header class="header-section"><h1>Image carousel</h1></header>
+      <main class="content-container">
+        <div class="image-carousel-container">
+          <img src="/images/image1.jpg" alt="Image" class="carousel-img" />
+          <button class="next-btn">next</button>
+          <button class="previous-btn">prevous</button>
+        </div>
+      </main>
+      <footer></footer>
+    </div>
+    <script>
+      let images = [
+        "/images/image1.jpg",
+        "/images/image2.jpg",
+        "/images/image3.jpg",
+        "/images/image4.jpg",
+        "/images/image5.jpg",
+      ];
+
+      let nextBtn = document.querySelector(".next-btn");
+      let prevousBtn = document.querySelector(".previous-btn");
+      let currentImage = document.querySelector(".carousel-img");
+
+      nextBtn.addEventListener("click", () => {
+        nextImage(images);
+      });
+      prevousBtn.addEventListener("click", () => {
+        previousImage(images);
+      });
+
+      let currentIndex = 0;
+      function nextImage(imageArray) {
+        currentIndex = (currentIndex + 1) % imageArray.length;
+        currentImage.src = imageArray[currentIndex];
+      }
+
+      function previousImage(imageArray) {
+        currentIndex =
+          (currentIndex - 1 + imageArray.length) % imageArray.length;
+        currentImage.src = imageArray[currentIndex];
+      }
+      setInterval(() => {
+        nextImage(images);
+      }, 5000);
+    </script>
+  </body>
+</html>
