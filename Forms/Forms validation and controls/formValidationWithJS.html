@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="style.css" />
+    <title>Browser Form</title>
+  </head>
+  <body>
+    <div class="content-container">
+      <div class="header-container">
+        <header>
+          <h1>This is Web form</h1>
+        </header>
+      </div>
+      <div class="main-container">
+        <main class="main-content">
+          <div class="form-container">
+            <form action="" novalidate class="browser-form">
+              <label for="email" class="input-feild">
+                <span class="label">Email</span>
+                <input type="email" id="email" required />
+                <span id="email-error"></span>
+              </label>
+              <label for="country" class="input-feild">
+                <span class="label">Country</span>
+                <select id="country" required>
+                  <option value="england">England</option>
+                  <option value="austrilia">Austrilia</option>
+                  <option value="finland">Finland</option>
+                  <option value="germany">Germany</option>
+                </select>
+                <span class="country-error">choose country</span>
+              </label>
+              <label for="zip-code" class="input-feild">
+                <span class="label">Zip Code</span>
+                <input type="text" id="zip-code" required />
+                <span class="zip-code-error"></span>
+              </label>
+              <label for="password" class="input-feild">
+                <span class="label">Password</span>
+                <input type="password" id="password" required />
+                <span class="password-error"></span>
+              </label>
+              <label for="confirm-password" class="input-feild">
+                <span class="label">Confirm Password</span>
+                <input type="password" id="confirm-password" required />
+                <span class="confirm-password-error"></span>
+              </label>
+              <button type="submit" class="submit-btn">Submit</button>
+            </form>
+          </div>
+        </main>
+      </div>
+      <div class="footer-container">
+        <footer>
+          <p>This is footer</p>
+        </footer>
+      </div>
+    </div>
+  </body>
+</html>
