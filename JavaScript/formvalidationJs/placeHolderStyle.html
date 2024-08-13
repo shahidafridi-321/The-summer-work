@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    input {
+      box-sizing: border-box;
+      height: 40px;
+      padding: 5px 20px;
+    }
+    input::placeholder {
+      color: rgb(57, 180, 133);
+    }
+    input:placeholder-shown {
+      border-color: teal;
+      font-style: italic;
+      font-size: 1.5rem;
+    }
+    #input2:placeholder-shown {
+      text-overflow: ellipsis;
+    }
+  </style>
+  <body>
+    <input placeholder="Type something here!" />
+    <input id="input1" placeholder="Name, Rank, and Serial Number" />
+    <br /><br />
+    <input id="input2" placeholder="Name, Rank, and Serial Number" />
+  </body>
+</html>
