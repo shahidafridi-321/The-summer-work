@@ -93,6 +93,8 @@ form.addEventListener("submit", (event) => {
     !confirmPassword.validity.valid
   ) {
     event.preventDefault();
+  } else {
+    successMessage();
   }
 });
 
@@ -134,4 +136,11 @@ function checksPasswords() {
     confirmPasswordErrorMessage.classList.add("error");
     confirmPasswordErrorMessage.classList.remove("correct");
   }
+}
+
+function successMessage() {
+  const highFive = document.querySelector(".high-five");
+  highFive.innerHTML =
+    "<p class = 'success-msg'>Form Submitted Successfully</p>";
+  highFive.style.display = "flex";
 }

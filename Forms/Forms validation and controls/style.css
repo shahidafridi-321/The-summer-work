@@ -80,3 +80,26 @@ footer p {
 .correct {
   color: green;
 }
+
+.high-five {
+  margin-top: 50px;
+  width: 88%;
+  height: 100px;
+  background: #e2e2e2;
+  padding: 10px 20px;
+  border-radius: 10px;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+.success-msg {
+  background: green;
+  color: #e2e2e2;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  width: 250px;
+  padding: 10px 20px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
