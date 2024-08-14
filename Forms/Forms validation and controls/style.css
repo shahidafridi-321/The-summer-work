@@ -27,19 +27,23 @@ h1 {
   flex-direction: column;
   gap: 20px;
   padding: 50px 30px;
+  max-width: 300px;
   justify-content: center;
   align-items: center;
-  max-width: fit-content;
   border: 2px solid #d4c6c6;
   border-radius: 10px;
   background: white;
   color: #020617;
+  word-wrap: break-word;
 }
 .input-feild {
   display: flex;
   flex-direction: column;
   gap: 10px;
+  padding: 0 10px;
+  justify-content: center;
 }
+
 .label {
   font-size: 1.2rem;
 }

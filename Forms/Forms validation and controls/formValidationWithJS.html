@@ -45,14 +45,20 @@
                   type="password"
                   id="password"
                   required
-                  pattern="^.{3,}$"
-                  minlength="4"
+                  pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,}$"
+                  minlength="8"
                 />
                 <span class="password-error"></span>
               </label>
               <label for="confirm-password" class="input-feild">
                 <span class="label">Confirm Password</span>
-                <input type="password" id="confirm-password" required />
+                <input
+                  type="password"
+                  id="confirm-password"
+                  required
+                  pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,}$"
+                  minlength="8"
+                />
                 <span class="confirm-password-error"></span>
               </label>
               <button type="submit" class="submit-btn">Submit</button>

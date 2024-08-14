@@ -1,19 +1,21 @@
-let email = document.getElementById("email");
-let emailErrorMessage = document.getElementById("email-error");
+const email = document.getElementById("email");
+const emailErrorMessage = document.getElementById("email-error");
 
-let zipCode = document.getElementById("zip-code");
-let zipCodeErrorMessage = document.querySelector("span.zip-code-error");
+const zipCode = document.getElementById("zip-code");
+const zipCodeErrorMessage = document.querySelector("span.zip-code-error");
 
-let country = document.querySelector("#country");
+const country = document.querySelector("#country");
 let countryErrorMessage = document.querySelector(".country-error");
 
-let password = document.getElementById("password");
-let passwordErrorMessage = document.querySelector(".password-error");
+const password = document.getElementById("password");
+const passwordErrorMessage = document.querySelector(".password-error");
 
-let confirmPassword = document.getElementById("confirm-password");
-let confirmPasswordErrorMessage = document.querySelector(
+const confirmPassword = document.getElementById("confirm-password");
+const confirmPasswordErrorMessage = document.querySelector(
   ".confirm-password-error"
 );
+
+const form = document.querySelector(".browser-form");
 
 email.addEventListener("input", () => {
   if (email.validity.valid) {
@@ -27,7 +29,7 @@ email.addEventListener("input", () => {
 
 country.addEventListener("change", () => {
   if (!country.value) {
-    countryErrorMessage.textContent = "please select country";
+    countryErrorMessage.textContent = "Please select a country";
     countryErrorMessage.classList.add("error");
     countryErrorMessage.classList.remove("correct");
   } else {
@@ -41,7 +43,7 @@ country.addEventListener("change", () => {
 
 zipCode.addEventListener("input", () => {
   if (!country.value) {
-    zipCodeErrorMessage.textContent = "please select country first";
+    zipCodeErrorMessage.textContent = "Please select a country first";
     zipCodeErrorMessage.classList.add("error");
     zipCodeErrorMessage.classList.remove("correct");
   } else if (zipCode.validity.valid) {
@@ -63,7 +65,6 @@ password.addEventListener("input", () => {
     passwordErrorMessage.classList.remove("error");
   } else {
     showError(password, passwordErrorMessage);
-    showError(confirmPassword,confirmPasswordErrorMessage);
   }
 });
 
@@ -83,19 +84,29 @@ confirmPassword.addEventListener("input", () => {
   }
 });
 
+form.addEventListener("submit", (event) => {
+  if (
+    !email.validity.valid ||
+    !country.validity.valid ||
+    !zipCode.validity.valid ||
+    !password.validity.valid ||
+    !confirmPassword.validity.valid
+  ) {
+    event.preventDefault();
+  }
+});
+
 function showError(input, message) {
   if (input.validity.valueMissing) {
     message.textContent = `${input.id} is required`;
   } else if (input.validity.typeMismatch) {
-    message.textContent = `please write ${input.id} in correct format`;
-    message.classList.remove("correct");
-    message.classList.add("error");
+    message.textContent = `Please enter a valid ${input.id}`;
   } else if (input.validity.patternMismatch && input === zipCode) {
-    message.textContent = "Invalid zip code format for " + country.value;
+    message.textContent = `Invalid zip code format for ${country.value}`;
   } else if (input.validity.patternMismatch && input === password) {
-    message.textContent = `Password should include`;
+    message.textContent = `Password should include uppercase, lowercase, a number, and a special character`;
   } else if (input.validity.tooShort) {
-    message.textContent = `The ${input.id} must be atleast ${input.minLength} charaters long`;
+    message.textContent = `The ${input.id} must be at least ${input.minLength} characters long`;
   }
   message.classList.remove("correct");
   message.classList.add("error");
@@ -109,7 +120,7 @@ function setZipCodePattern() {
     finland: "^\\d{5}$",
     germany: "^\\d{5}$",
   };
-  let selectedPattern = zipCodePattern[country.value];
+  let selectedPattern = zipCodePattern[country.value.toLowerCase()];
   if (selectedPattern) {
     zipCode.setAttribute("pattern", selectedPattern);
   } else {
@@ -119,7 +130,7 @@ function setZipCodePattern() {
 
 function checksPasswords() {
   if (password.value) {
-    confirmPasswordErrorMessage.textContent = "Password did not match";
+    confirmPasswordErrorMessage.textContent = "Passwords do not match";
     confirmPasswordErrorMessage.classList.add("error");
     confirmPasswordErrorMessage.classList.remove("correct");
   }
