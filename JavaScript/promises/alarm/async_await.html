@@ -32,14 +32,13 @@
         });
       }
 
-      btn.addEventListener("click", () => {
-        alarm(name.value, delay.value)
-          .then((message) => {
-            output.textContent = message;
-          })
-          .catch((error) => {
-            output.textContent = `Could not set alarm ${error}`;
-          });
+      btn.addEventListener("click", async () => {
+        try {
+          const message = await alarm(name.value, delay.value);
+          output.textContent = message;
+        } catch (error) {
+          output.textContent = error;
+        }
       });
     </script>
   </body>
