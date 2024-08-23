@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<script>
+			let api = {
+				key: "fcc8de7015bbb202209bbf0261babf4c",
+				base: "https://api.openweathermap.org/data/2.5/",
+			};
+			fetch(`${api.base}weather?q=peshawar&units=metric&APPID=${api.key}`)
+				.then((weather) => weather.json())
+				.then((weather) => console.log(weather.main));
+		</script>
+	</body>
+</html>
