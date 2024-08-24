@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Fetch Basic</title>
+	</head>
+	<body>
+		<h1>Fetch Basic API</h1>
+		<img src="" alt="flowers" />
+	</body>
+	<script>
+		const image = document.querySelector("img");
+		fetch("flowers.jpg")
+			.then((response) => {
+				if (!response.ok) {
+					throw new Error("Not Found");
+				}
+				return response.blob();
+			})
+			.then((myBlob) => {
+				const objectURL = URL.createObjectURL(myBlob);
+				image.src = objectURL;
+			})
+			.catch((error) => console.log(error));
+	</script>
+</html>
