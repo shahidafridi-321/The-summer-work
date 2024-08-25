@@ -1,7 +1,7 @@
 // Defining a baseURL and key to as part of the request URL
 
 const baseURL = "https://api.nytimes.com/svc/search/v2/articlesearch.json";
-const key = "3Cm3bHxG1I3ROE2N94Y8vw7347XEAaQk";
+const key = "OSjs8QawB0nv8abJwjrFwELrOUkzOstK";
 
 // Grab references to all the DOM elements you'll need to manipulate
 const searchTerm = document.querySelector(".search");
@@ -20,17 +20,20 @@ nav.style.display = "none";
 let pageNumber = 0;
 
 // Event listeners to control the functionality
-
 searchForm.addEventListener("submit", submitSearch);
+nextBtn.addEventListener("click", nextPage);
+previousBtn.addEventListener("click", previousPage);
 
-function submitSearch() {
+function submitSearch(e) {
 	pageNumber = 0;
-	fetchApi(e);
+	fetchResults(e);
 }
 
-function fetchApi(e) {
+function fetchResults(e) {
+	// Use preventDefault() to stop the form submitting
 	e.preventDefault();
 
+	// Assemble the full URL
 	let url = `${baseURL}?api-key=${key}&page=${pageNumber}&q=${searchTerm.value}&fq=document_type:("article")`;
 
 	if (startDate.value !== "") {
@@ -40,17 +43,13 @@ function fetchApi(e) {
 	if (endDate.value !== "") {
 		url = `${url}&end_date=${endDate.value}`;
 	}
-}
 
-fetch(url)
-	.then((response) => {
-		if (!response.ok) {
-			throw new Error("HTTP Error :", response.status);
-		}
-		return response.json();
-	})
-	.then((json) => displayResults(json))
-	.catch((error) => console.log("Could not fetch:", error));
+	// Use fetch() to make the request to the API
+	fetch(url)
+		.then((response) => response.json())
+		.then((json) => displayResults(json))
+		.catch((error) => console.error(`Error fetching data: ${error.message}`));
+}
 
 function displayResults(json) {
 	while (section.firstChild) {
@@ -59,7 +58,11 @@ function displayResults(json) {
 
 	const articles = json.response.docs;
 
-	nav.style.display = articles.length === 10 ? "block" : "none";
+	if (articles.length === 10) {
+		nav.style.display = "block";
+	} else {
+		nav.style.display = "none";
+	}
 
 	if (articles.length === 0) {
 		const para = document.createElement("p");
@@ -100,4 +103,18 @@ function displayResults(json) {
 			section.appendChild(article);
 		}
 	}
+}
+
+function nextPage(e) {
+	pageNumber++;
+	fetchResults(e);
+}
+
+function previousPage(e) {
+	if (pageNumber > 0) {
+		pageNumber--;
+	} else {
+		return;
+	}
+	fetchResults(e);
 }
