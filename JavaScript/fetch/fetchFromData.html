@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Fetch data from Data repository</title>
+		<style>
+			body {
+				padding: 10px 10px;
+				margin: 0;
+				font-family: sans-serif;
+				display: flex;
+				align-items: center;
+				justify-content: space-around;
+				flex-wrap: wrap;
+				gap: 20px;
+			}
+			p {
+				margin: 5px 0;
+			}
+			.cards {
+				padding: 20px;
+				border: none;
+				width: 300px;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				box-shadow: 1px 1px 15px 0 black;
+				border-radius: 10px;
+				flex-grow: 1;
+			}
+		</style>
+	</head>
+	<body>
+		<script>
+			//	const name = document.querySelector(".name");
+			//	const age = document.querySelector(".age");
+			//	const father = document.querySelector(".father");
+			//	const mother = document.querySelector(".mother");
+
+			fetch(
+				"https://raw.githubusercontent.com/shahidafridi-321/data/main/data.json",
+				{
+					mode: "cors",
+				}
+			)
+				.then((response) => {
+					if (!response.ok) {
+						throw new Error(`HTTP Error: ${response.status}`);
+					}
+					return response.json();
+				})
+				.then((data) => {
+					populateDOM(data);
+				})
+				.catch((error) => {
+					console.log("Could not load ", error);
+				});
+
+			function populateDOM(data) {
+				const html = document.querySelector("body");
+				html.innerHTML = "";
+
+				data.person.forEach((person) => {
+					html.innerHTML += `
+			          <div class="cards">
+			            <p>Name : ${person.name}</p>
+			            <p>Age : ${person.age}</p>
+			            <p>Father Name : ${person.parents.father}</p>
+			            <p>Mother Name : ${person.parents.mother}</p>
+			          </div>
+			          `;
+				});
+
+				//	name.textContent = `Name : ${data.person[0].name}`;
+				//	age.textContent = `Age : ${data.person[0].age}`;
+				//  father.textContent = `Father Name : ${data.person[0].parents.father}`
+			}
+		</script>
+	</body>
+</html>
