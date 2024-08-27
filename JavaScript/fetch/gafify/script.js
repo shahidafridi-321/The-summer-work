@@ -13,6 +13,7 @@ function createURL() {
 	return url;
 }
 
+// using chain of promises then()
 function fetchResult() {
 	fetch(createURL(), {
 		mode: "cors",
@@ -20,23 +21,52 @@ function fetchResult() {
 		.then(function (response) {
 			if (!response.ok) {
 				throw new Error(`HTTP Error :${response.status}`);
-			} else if (response.length === 0) {
-				throw new Error(`Could not find any gifs`);
 			}
 			return response.json();
 		})
-		.then(function (response) {
-			img.src = response.data.images.original.url;
-		})
-		.then(() => {
+		.then(function (data) {
+			if (
+				!data ||
+				!data.data ||
+				!data.data.images ||
+				!data.data.images.original
+			) {
+				throw new Error("could not find any gifs");
+			}
+			img.src = data.data.images.original.url;
 			search.value = "";
 		})
 		.catch((error) => {
-			console.log("Not Found", error);
+			console.log("Error", error.message);
 		});
 }
-fetchResult();
+
+// using aysnc/await
+async function fetchResultUsingAsyncAwait() {
+	try {
+		let response = await fetch(createURL(), { mode: "cors" });
+		if (!response.ok) {
+			throw new Error(`HTTP Error :${response.status}`);
+		}
+		let data = await response.json();
+		if (
+			!data ||
+			!data.data ||
+			!data.data.images ||
+			!data.data.images.original
+		) {
+			throw new Error("could not find any gifs");
+		}
+		img.src = data.data.images.original.url;
+		search.value = "";
+	} catch (error) {
+		console.log(`Error: ${error.message}`);
+	}
+}
+//fetchResult();
+
+fetchResultUsingAsyncAwait();
 
 searchBtn.addEventListener("click", () => {
-	fetchResult();
+	fetchResultUsingAsyncAwait();
 });
