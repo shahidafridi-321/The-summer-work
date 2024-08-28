@@ -13,7 +13,8 @@ class HttpError extends Error {
 		this.response = response;
 	}
 }
-
+// used promises
+/* 
 function loadJson(url) {
 	return fetch(url).then((response) => {
 		if (response.status == 200) {
@@ -41,6 +42,37 @@ function demoGithubUser() {
 				throw err;
 			}
 		});
+}
+ */
+
+// use async/await
+async function loadJson(url) {
+	let response = await fetch(url);
+	if (response.status == 200) {
+		let json = await response.json();
+		return json;
+	} else {
+		throw new HttpError(response);
+	}
+}
+
+async function demoGithubUser() {
+	let user;
+	while (true) {
+		let name = prompt("Enter a name?", "shahid");
+		try {
+			user = await loadJson(`https://api.github.com/users/${name}`);
+			break;
+		} catch (error) {
+			if (error instanceof HttpError && err.response.status == 404) {
+				alert("No such user, please reenter.");
+			} else {
+				throw error;
+			}
+		}
+	}
+	alert(`Full name: ${user.name}`);
+	return user;
 }
 
 demoGithubUser();
