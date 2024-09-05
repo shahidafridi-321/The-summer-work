@@ -4,10 +4,10 @@ function collatz(num) {
 		return steps;
 	} else if (num % 2 == 0) {
 		steps++;
-		collatz(num / 2);
+		return collatz(num / 2);
 	} else if (num % 2 !== 0) {
 		steps++;
-		collatz(3 * num + 1);
+		return collatz(3 * num + 1);
 	}
 	return steps;
 }
