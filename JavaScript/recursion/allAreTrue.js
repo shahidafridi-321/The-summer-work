@@ -5,10 +5,9 @@ function all(array, callBack) {
 	if (!callBack(array[0])) {
 		return false;
 	}
-
 	return all(array.slice(1), callBack);
 }
 function allLessthanSeven(num) {
-	return num < 7;
+	return num < 10;
 }
-console.log(all([1, 2, 9]),allLessthanSeven);
+console.log(all([1, 2, 9], allLessthanSeven));
