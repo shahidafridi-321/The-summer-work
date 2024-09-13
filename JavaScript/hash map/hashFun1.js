@@ -15,7 +15,7 @@ function hash(name,surname) {
 }
 console.log(hash("shahid"));// output s
 console.log(hash("shahid","afridi"));// output sa
-*/
+
 
 function stringToNumber(string) {
 	let hashCode = 0;
@@ -24,9 +24,33 @@ function stringToNumber(string) {
 	}
 	return hashCode;
 }
+	*/
 
 function hash(name, surName) {
 	return stringToNumber(name) + stringToNumber(surName);
 }
 
-console.log(hash("shahid", "afridi"));
+/* console.log(hash("shahid", "afridi")); */
+
+// Collision when different strings generate same code
+/* let saraCode = stringToNumber(`Sara`);
+let rasaCode = stringToNumber(`raSa`);
+ */
+//console.log(rasaCode, saraCode); //391
+
+// let's rework on the over stringToNumber function
+// on each iteration , multiply the number with new code
+
+function stringToNumber(string) {
+	let hashCode = 0;
+	let primeNumber = 31;
+	for (let i = 0; i < string.length; i++) {
+		hashCode = primeNumber * hashCode + string.charCodeAt(i);
+	}
+	return hashCode;
+}
+
+saraCode = stringToNumber(`Sara`);
+rasaCode = stringToNumber(`raSa`);
+
+console.log(saraCode, rasaCode); // 2569501,3492061 unique codes
