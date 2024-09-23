@@ -8,3 +8,8 @@ test("For Greater Number", () => {
 test("For Greater Number", () => {
 	expect(guesingGameIsolation(1, 3)).toBe("To high");
 });
+
+
+test("For Greater Number", () => {
+	expect(guesingGameIsolation(1, 1)).toBe("congrates you win");
+});
