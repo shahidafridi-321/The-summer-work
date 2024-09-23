@@ -5,3 +5,10 @@ function guesingGame() {
 	else if (guessNumber < magicNumber) console.log("To low");
 	else console.log("congrates you win");
 }
+
+function guesingGameIsolation(magicNumber, guessNumber) {
+	if (guessNumber > magicNumber) console.log("To Greater");
+	else if (guessNumber < magicNumber) console.log("To low");
+	else console.log("congrates you win");
+}
+
