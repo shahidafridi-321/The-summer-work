@@ -7,8 +7,8 @@ function guesingGame() {
 }
 
 function guesingGameIsolation(magicNumber, guessNumber) {
-	if (guessNumber > magicNumber) console.log("To Greater");
-	else if (guessNumber < magicNumber) console.log("To low");
+	if (guessNumber > magicNumber) return "To high";
+	else if (guessNumber < magicNumber) return "To low";
 	else console.log("congrates you win");
 }
 
@@ -18,4 +18,7 @@ function runTheGame() {
 	guesingGameIsolation(magicNumber, guessNumber);
 }
 
-runTheGame();
+module.exports = guesingGameIsolation;
+
+/* runTheGame();
+ */
