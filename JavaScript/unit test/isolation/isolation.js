@@ -12,3 +12,10 @@ function guesingGameIsolation(magicNumber, guessNumber) {
 	else console.log("congrates you win");
 }
 
+function runTheGame() {
+	let magicNumber = 22;
+	let guessNumber = prompt("enter a number ");
+	guesingGameIsolation(magicNumber, guessNumber);
+}
+
+runTheGame();
