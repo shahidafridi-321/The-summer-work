@@ -9,7 +9,7 @@ function guesingGame() {
 function guesingGameIsolation(magicNumber, guessNumber) {
 	if (guessNumber > magicNumber) return "To high";
 	else if (guessNumber < magicNumber) return "To low";
-	else console.log("congrates you win");
+	else return "congrates you win";
 }
 
 function runTheGame() {
