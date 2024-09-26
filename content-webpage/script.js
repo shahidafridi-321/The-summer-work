@@ -1,5 +1,5 @@
 let url =
-	"https://raw.githubusercontent.com/shahidafridi-321/curriculum/refs/heads/main/advanced_html_css/accessibility/accessibility_auditing.md";
+	"https://raw.githubusercontent.com/shahidafridi-321/curriculum/refs/heads/main/javascript/computer_science/project_binary_search_trees.md";
 
 async function getMarkdownFile(url) {
 	let response = await fetch(url);
