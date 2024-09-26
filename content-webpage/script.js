@@ -9,9 +9,9 @@ async function getMarkdownFile(url) {
 
 // Render markdown text to HTML
 async function renderMarkdowntext(url) {
-	const converter = new showdown.Converter();
+	const md = window.markdownit();
 	let markdownText = await getMarkdownFile(url);
-	let htmlContent = converter.makeHtml(markdownText);
+	let htmlContent = md.render(markdownText);
 	document.querySelector(".content").innerHTML = htmlContent;
 }
 
