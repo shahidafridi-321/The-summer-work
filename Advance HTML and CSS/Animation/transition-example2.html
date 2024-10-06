@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<style>
+			body {
+				display: flex;
+				flex-direction: column;
+				align-items: start;
+				gap: 20px;
+			}
+			.btn {
+				font-size: 14px;
+				transition-property: font-size;
+				transition-duration: 4s;
+				transition-timing-function: ease-in;
+				transition-delay: 2s;
+			}
+
+			.btn:hover {
+				font-size: 36px;
+			}
+
+			.box {
+				border: 1px solid #000;
+				border-radius: 25%;
+				padding: 20px;
+				width: 100px;
+				height: 100px;
+				background: #0000ff;
+
+				transition: width 2s, height 2s, background 2s, rotate 2s;
+			}
+
+			.box:hover {
+				background: #ffcccc;
+				width: 200px;
+				height: 200px;
+				rotate: 360deg;
+			}
+			nav {
+				display: flex;
+				gap: 0.5rem;
+			}
+
+			a {
+				flex: 1;
+				background-color: #333;
+				border: 1px solid;
+				padding: 0.5rem;
+				text-align: center;
+				text-decoration: none;
+				transition: all 0.5s ease-out;
+			}
+			a:hover,
+			a:focus {
+				background-color: #fff;
+				color: #333;
+			}
+		</style>
+	</head>
+	<body>
+		<button class="btn">Transition</button>
+
+		<div class="box">Simple</div>
+
+		<nav>
+			<a href="#">Home</a>
+			<a href="#">About</a>
+			<a href="#">Contact Us</a>
+			<a href="#">Links</a>
+		</nav>
+	</body>
+</html>
