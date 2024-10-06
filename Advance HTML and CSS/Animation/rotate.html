@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<style>
+			body {
+				height: 100vh;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+			.parent {
+				position: relative;
+			}
+			.box {
+				width: 100px;
+				height: 100px;
+				position: absolute;
+			}
+			.black-box {
+				background: #000;
+			}
+			.red-box {
+				background: #990606;
+			}
+			.blue-box {
+				background: blue;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="parent">
+			<div class="box black-box"></div>
+			<div class="box red-box"></div>
+			<div class="box blue-box"></div>
+		</div>
+	</body>
+	<script>
+		let box = document.querySelector(".black-box");
+		let redBox = document.querySelector(".red-box");
+		let blueBox = document.querySelector(".blue-box");
+
+		function rotate(box, deg, scale = 0) {
+			let angle = deg;
+
+			let interval = setInterval(() => {
+				box.style.transform = `rotate(${angle}deg) scale(${scale},${scale})`;
+				angle++;
+				scale += 0.002;
+				if (angle >= 360) {
+					angle = 0;
+				}
+				if (scale >= 2) {
+					scale = 2;
+				}
+			}, 10);
+		}
+
+		rotate(box, 0);
+		rotate(redBox, 45);
+		rotate(blueBox, 160);
+	</script>
+</html>
