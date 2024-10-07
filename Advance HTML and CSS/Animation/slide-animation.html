@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<style>
+			.container {
+				margin: 100px;
+				border: 1px solid #000;
+				height: 300px;
+				width: 300px;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+			.box {
+				width: 100px;
+				height: 100px;
+				background-color: blue;
+				border-radius: 25%;
+			}
+			.animate {
+				animation: slide-in 1s both;
+			}
+
+			.rotate {
+				animation: rotate 1s ease-in-out both;
+			}
+
+			.scale {
+				animation: scale 1.5s ease both;
+			}
+			@keyframes slide-in {
+				0% {
+					transform: translateY(-1000px);
+				}
+				100% {
+					transform: translateY(0px);
+				}
+			}
+
+			@keyframes rotate {
+				0% {
+					transform: rotate(0);
+				}
+				100% {
+					transform: rotate(360deg);
+				}
+			}
+
+			@keyframes scale {
+				0% {
+					transform: scale(0.5);
+				}
+				100% {
+					transform: scale(1);
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<div class="box"></div>
+		</div>
+		<button class="btn">Aniamte</button>
+		<button class="rotate-btn">Rotate</button>
+		<button class="scale-btn">Scale</button>
+
+		<script>
+			let animateBtn = document.querySelector(".btn");
+			let box = document.querySelector(".box");
+			let rotateBtn = document.querySelector(".rotate-btn");
+			let scaleBtn = document.querySelector(".scale-btn");
+
+			animateBtn.addEventListener("click", () => {
+				box.classList.add("animate");
+				setTimeout(() => {
+					box.classList.remove("animate");
+				}, 1001);
+			});
+
+			rotateBtn.addEventListener("click", () => {
+				box.classList.add("rotate");
+
+				setTimeout(() => {
+					box.classList.remove("rotate");
+				}, 1001);
+			});
+
+			scaleBtn.addEventListener("click", () => {
+				box.classList.add("scale");
+				setTimeout(() => {
+					box.classList.remove("scale");
+				}, 2000);
+			});
+		</script>
+	</body>
+</html>
