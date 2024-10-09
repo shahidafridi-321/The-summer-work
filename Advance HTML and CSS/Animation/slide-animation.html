@@ -31,6 +31,10 @@
 			.scale {
 				animation: scale 1.5s ease both;
 			}
+
+			.visibility {
+				animation: opacity 2.5s both;
+			}
 			@keyframes slide-in {
 				0% {
 					transform: translateY(-1000px);
@@ -57,6 +61,16 @@
 					transform: scale(1);
 				}
 			}
+
+			@keyframes opacity {
+				0% {
+					opacity: 1;
+				}
+
+				100% {
+					opacity: 0;
+				}
+			}
 		</style>
 	</head>
 	<body>
@@ -66,12 +80,15 @@
 		<button class="btn">Aniamte</button>
 		<button class="rotate-btn">Rotate</button>
 		<button class="scale-btn">Scale</button>
+		<button class="visibility-btn">Visibility</button>
 
 		<script>
 			let animateBtn = document.querySelector(".btn");
 			let box = document.querySelector(".box");
 			let rotateBtn = document.querySelector(".rotate-btn");
 			let scaleBtn = document.querySelector(".scale-btn");
+			let visibilityBtn = document.querySelector(".visibility-btn");
+
 
 			animateBtn.addEventListener("click", () => {
 				box.classList.add("animate");
@@ -93,6 +110,15 @@
 				setTimeout(() => {
 					box.classList.remove("scale");
 				}, 2000);
+			});
+
+			animateBtn.addEventListener("click", () => {
+				console.log('works');
+				
+				box.classList.add("visibility");
+				/* setTimeout(() => {
+					box.classList.remove("visibility");
+				}, 2500); */
 			});
 		</script>
 	</body>
