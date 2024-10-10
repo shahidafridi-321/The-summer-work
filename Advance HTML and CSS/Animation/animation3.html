@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<style>
+			.slidein {
+				animation-duration: 3s;
+				animation-name: slideIn;
+				animation-iteration-count: 3;
+				animation-direction: alternate;
+			}
+
+			p span {
+				display: inline-block;
+				animation-duration: 3s;
+				animation-name: growshrink;
+				animation-iteration-count: 3;
+			}
+			@keyframes slideIn {
+				from {
+					transform: translate(150vw, 0);
+					scale: 200% 1;
+				}
+				to {
+					transform: translate(0, 0);
+					scale: 100% 1;
+				}
+			}
+
+			@keyframes growshrink {
+				25%,
+				75% {
+					scale: 100%;
+				}
+				50% {
+					scale: 200%;
+					color: magenta;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<h1 id="watchme">Watch me move</h1>
+
+		<p>
+			This example shows how to use CSS animations to make <code>H1</code>
+			elements move across the page.
+		</p>
+		<p>
+			In addition, we output some text each time an animation event fires, so
+			you can see them in action.
+		</p>
+		<ul id="output"></ul>
+
+		<!-- <p>
+			The Caterpillar and <span>Alice </span> looked at each other for some time
+			in silence: at last the Caterpillar took the hookah out of its mouth, and
+			addressed her in a languid, sleepy voice.
+		</p> -->
+
+
+		<script>
+			const element = document.getElementById("watchme");
+
+			element.addEventListener("animationstart", listener, false);
+
+			element.addEventListener("animationend", listener, false);
+
+			element.addEventListener("animationiteration", listener, false);
+
+			element.classList.add("slidein");
+
+			function listener(e) {
+				let l = document.createElement("li");
+
+				switch (e.type) {
+					case "animationstart":
+						l.textContent = `Started: elapsed time us ${e.elapsedTime}`;
+						break;
+					case "animationend":
+						l.textContent = `Ended : elapsed time is ${e.elapsedTime}`;
+						break;
+					case "animationiteration":
+						l.textContent = `New loop started at time ${e.elapsedTime}`;
+						break;
+				}
+
+				document.getElementById("output").appendChild(l);
+			}
+		</script>
+	</body>
+</html>
