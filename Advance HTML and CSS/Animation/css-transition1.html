@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<style>
+			.btn {
+				width: 100px;
+				height: 100px;
+				border-radius: 50%;
+				border: none;
+				background: slateblue;
+				color: white;
+				font-size: 20px;
+				font-weight: 500;
+				line-height: 1;
+				transition: animation 3s cubic-bezier(0.1, 0.2, 0.3, 0.4),
+					transform 250ms ease-out;
+          will-change: transform;
+			}
+			.btn:hover {
+				transform: translateY(-10px);
+			}
+			.btn-move-right {
+				animation: translate 1s;
+				transform: translateX(200px);
+			}
+			@keyframes translate {
+				0% {
+					transform: translateY(-100px);
+				}
+				100% {
+					transform: translateY(100px);
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<button class="btn">Hello word</button>
+		<script>
+			let btn = document.querySelector(".btn");
+
+			btn.addEventListener("click", () => {
+				btn.classList.toggle("btn-move-right");
+			});
+		</script>
+	</body>
+</html>
