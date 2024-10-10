@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Bouncing Balls</title>
+
+		<style>
+			.container {
+				width: 100vw;
+				height: 100vh;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				gap: 10px;
+			}
+
+			.ball {
+				width: 75px;
+				height: 75px;
+				border-radius: 50%;
+				background-color: mediumslateblue;
+			}
+
+			.ball.one {
+				--bounce-upto: 20px;
+				animation: 200ms bounce alternate infinite
+					cubic-bezier(0.2, 0.6, 0.6, 1);
+			}
+			.ball.two {
+				--bounce-upto: 30px;
+				animation: 300ms bounce alternate infinite
+					cubic-bezier(0.2, 0.6, 0.6, 1);
+			}
+			.ball.three {
+				--bounce-upto: 40px;
+				animation: 400ms bounce alternate infinite
+					cubic-bezier(0.2, 0.6, 0.6, 1);
+			}
+
+			@keyframes bounce {
+				0% {
+					transform: translateY(0);
+				}
+				100% {
+					transform: translateY(calc(var(--bounce-upto) * -1));
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<div class="ball one"></div>
+			<div class="ball two"></div>
+			<div class="ball three"></div>
+		</div>
+	</body>
+</html>
