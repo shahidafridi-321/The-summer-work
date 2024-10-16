@@ -8,9 +8,9 @@ import "./index.css";
 createRoot(document.getElementById("root")).render(
 	<StrictMode>
 		<Greeting />
-		<Card />
-    <Card />
-    <Card />
-    <Card />
+		<Card name="No 01"/>
+    <Card name="No 02"/>
+    <Card name="No 03"/>
+    <Card name="No 04"/>
 	</StrictMode>
 );
