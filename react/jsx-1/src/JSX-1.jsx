@@ -55,3 +55,21 @@ function formatDate(date) {
 export function FullDayName() {
 	return <h1>It&apos;s {formatDate(today)} today</h1>;
 }
+
+let person = {
+	name: "shahid khon",
+	image: "https://i.imgur.com/7vQD0fPs.jpg",
+	them: {
+		backgroundColor: "black",
+		color: "pink",
+	},
+};
+
+export function Profile() {
+	return (
+		<div style={person.them}>
+			<img src={person.image} alt="shahid khon profile picture" />
+			<p>{person.name}</p>
+		</div>
+	);
+}
