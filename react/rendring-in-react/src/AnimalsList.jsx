@@ -10,6 +10,7 @@
 }
  */
 
+// Rendring List
 /* export function Animals() {
 	return (
 		<div>
@@ -23,7 +24,8 @@
 	);
 } */
 
-function ListItem(props) {
+// Rendring components
+/* function ListItem(props) {
 	return <li>{props.animal}</li>;
 }
 
@@ -44,4 +46,45 @@ export function Animals() {
     <h1>These are animals</h1>
     <List animals={animals}/>
   </div>
+} */
+
+// Conditional Rendring
+
+/* function List(props) {
+	return (
+		<ul>
+			{props.animals.map((animal) => {
+				//return animal.startsWith("L") ? <li key={animal}>{animal}</li> : null; // USING TERNARY OPERATORS
+				return animal.startsWith("L") && <li key={animal}>{animal}</li>;
+			})}
+		</ul>
+	);
+}
+ */
+
+// Multiple conditions using if/else if and switch
+
+function List(props) {
+	if (!props.animals) return <div>Loading...</div>;
+	if (props.animals.length === 0) {
+		return <div>There is no element to render</div>;
+	}
+	return (
+		<div>
+			{props.animals.map((animal) => {
+				return <li key={animal}>{animal}</li>;
+			})}
+		</div>
+	);
+}
+
+export function Animals() {
+	let animals = ["Lion", "Duck", "Fish", "Dog", "Camel", "Lizard"];
+	let animals1 = [];
+	return (
+		<div>
+			<h1>Animals starts with L:</h1>
+			<List  />
+		</div>
+	);
 }
