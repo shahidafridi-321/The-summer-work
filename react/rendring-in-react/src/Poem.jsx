@@ -16,9 +16,5 @@ export default function Poem() {
 		output.push(<p key={i + "-text"}>{line}</p>);
 	});
 	output.shift();
-	return (
-		<article>
-      {output}
-		</article>
-	);
+	return <article>{output}</article>;
 }
