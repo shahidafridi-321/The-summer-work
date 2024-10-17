@@ -3,10 +3,11 @@ import { createRoot } from "react-dom/client";
 
 
 import { Animals } from "./AnimalsList";
+import { ItemsList } from "./ConditionallyReturningJSX";
 import "./index.css";
 
 createRoot(document.getElementById("root")).render(
 	<StrictMode>
-	<Animals/>
+	<ItemsList  />
 	</StrictMode>
 );
