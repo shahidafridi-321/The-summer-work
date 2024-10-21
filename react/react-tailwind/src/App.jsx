@@ -1,32 +1,22 @@
-// App.jsx
-import React from "react";
-import ReactDOM from "react-dom/client";
-import "./index.css"; // Ensure Tailwind CSS is included
-import Card from "./Card"; // Import the Card component
+function Button(props) {
+	return <button className={props.classes}>{props.text}</button>;
+}
 
 export const App = () => {
-  return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      {/* Example cards */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <Card
-          title="Beautiful Landscape"
-          description="Explore the beauty of nature with this stunning landscape."
-          image="https://via.placeholder.com/300x200.png"
-        />
-        <Card
-          title="Adventure Awaits"
-          description="Take your adventures to the next level with our travel guide."
-          image="https://via.placeholder.com/300x200.png"
-        />
-        <Card
-          title="City Lights"
-          description="Discover the vibrant life of the city after dark."
-          image="https://via.placeholder.com/300x200.png"
-        />
-      </div>
-    </div>
-  );
+	return (
+		<div className="grid grid-cols-1 place-items-start">
+			<Button
+				text="Click Me!"
+				classes="border-4 font-extrabold border-blue-400 px-4 py-2 rounded-tr-3xl rounded-bl-3xl mt-6 mx-5"
+			/>
+			<Button
+				text="Do not Click Me!"
+				classes="border-4 font-extrabold border-red-400 px-4 py-2 rounded-tr-3xl rounded-bl-3xl mt-6 mx-5"
+			/>
+			<Button
+				text="Click it"
+				classes="border-4 font-extrabold border-green-400 px-4 py-2 rounded-tr-3xl rounded-bl-3xl mt-6 mx-5"
+			/>
+		</div>
+	);
 };
-
-
