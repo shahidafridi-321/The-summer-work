@@ -22,6 +22,13 @@ export default {
 								color: "#2563eb", // Darken on hover
 							},
 						},
+						p: {
+							color: "#ffffff",
+						},
+
+						code: {
+							fontSize: "40px",
+						},
 					},
 				},
 			},

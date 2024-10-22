@@ -16,11 +16,11 @@ const CourseContent = ({ markdownUrl }) => {
   }, [markdownUrl]);
 
   return (
-    <div className="max-w-4xl mx-auto p-6 bg-white shadow-md rounded-lg">
+    <div className="max-w-4xl mx-auto p-6   shadow-md rounded-lg">
       <ReactMarkdown
         children={content}
         remarkPlugins={[remarkGfm]}
-        className="prose prose-lg"
+        className="prose prose-lg flex space-y-[50px] space-x-[50px] flex-col"
         components={{
           code({ node, inline, className, children, ...props }) {
             const match = /language-(\w+)/.exec(className || "");
