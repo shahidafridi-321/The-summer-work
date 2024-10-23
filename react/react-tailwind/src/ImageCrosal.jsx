@@ -106,7 +106,10 @@ export function Gallery() {
 		index = index + 1 > sculptureList.length - 1 ? 0 : index + 1;
 		setIndex(index);
 	}
-
+	function handlePrevious() {
+		index = index - 1 < 0 ? sculptureList.length - 1 : index - 1;
+		setIndex(index);
+	}
 	function handleShowMore() {
 		setShowMore(!showMore);
 	}
@@ -120,6 +123,13 @@ export function Gallery() {
 				className="px-5 py-3 text-white bg-gray-700 rounded-full"
 			>
 				Next
+			</button>
+
+			<button
+				onClick={handlePrevious}
+				className="px-5 py-3 text-white bg-gray-700 rounded-full"
+			>
+				Previous
 			</button>
 			<h2>
 				<i>{sculpture.name}</i>
