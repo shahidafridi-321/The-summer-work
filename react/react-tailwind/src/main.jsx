@@ -6,10 +6,10 @@ import { createRoot } from "react-dom/client";
 /* import { App } from "./App"; */
 /* import App from "./BackgroundColorChange"; */
 import "./index.css";
-import FeedbackForm from "./FeedbackForm";
+import FeedbackForm2 from "./FeedbackForm2";
 
 createRoot(document.getElementById("root")).render(
 	<StrictMode>
-		<FeedbackForm />
+		<FeedbackForm2 />
 	</StrictMode>
 );
