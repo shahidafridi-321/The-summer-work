@@ -7,11 +7,13 @@ import { createRoot } from "react-dom/client";
 /* import App from "./BackgroundColorChange"; */
 /* import { Person } from "./State-in-React/Person"; */
 import "./index.css";
-import { CustomInput } from "./State-in-React/CustomInput";
+/* import { CustomInput } from "./State-in-React/CustomInput"; */
+import MovingDot from "./MovingDot";
+import { UserForm } from "./UserForm";
 /* import FeedbackForm2 from "./FeedbackForm2"; */
 
 createRoot(document.getElementById("root")).render(
 	<StrictMode>
-		<CustomInput />
+		<UserForm />
 	</StrictMode>
 );
