@@ -8,12 +8,13 @@ import { createRoot } from "react-dom/client";
 /* import { Person } from "./State-in-React/Person"; */
 import "./index.css";
 /* import { CustomInput } from "./State-in-React/CustomInput"; */
-import MovingDot from "./MovingDot";
-import { UserForm } from "./UserForm";
+/* import MovingDot from "./MovingDot"; */
+/* import { UserForm } from "./UserForm"; */
+import { Accordion } from "./State-in-React/Accordion";
 /* import FeedbackForm2 from "./FeedbackForm2"; */
 
 createRoot(document.getElementById("root")).render(
 	<StrictMode>
-		<UserForm />
+		<Accordion />
 	</StrictMode>
 );
