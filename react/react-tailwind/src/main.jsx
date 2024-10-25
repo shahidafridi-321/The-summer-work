@@ -11,11 +11,12 @@ import "./index.css";
 /* import MovingDot from "./MovingDot"; */
 /* import { UserForm } from "./UserForm"; */
 /* import { Accordion } from "./State-in-React/Accordion"; */
-import SyncedInputs from "./State-in-React/SharedInput";
+/* import SyncedInputs from "./State-in-React/SharedInput"; */
+import FilterableList from "./State-in-React/SearchBar";
 /* import FeedbackForm2 from "./FeedbackForm2"; */
 
 createRoot(document.getElementById("root")).render(
 	<StrictMode>
-		<SyncedInputs />
+		<FilterableList />
 	</StrictMode>
 );
