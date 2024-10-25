@@ -12,11 +12,12 @@ import "./index.css";
 /* import { UserForm } from "./UserForm"; */
 /* import { Accordion } from "./State-in-React/Accordion"; */
 /* import SyncedInputs from "./State-in-React/SharedInput"; */
-import FilterableList from "./State-in-React/SearchBar";
+/* import FilterableList from "./State-in-React/SearchBar"; */
+import Home from "./pages/Home";
 /* import FeedbackForm2 from "./FeedbackForm2"; */
 
 createRoot(document.getElementById("root")).render(
 	<StrictMode>
-		<FilterableList />
+		<Home />
 	</StrictMode>
 );
