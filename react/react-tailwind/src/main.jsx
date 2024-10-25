@@ -10,11 +10,12 @@ import "./index.css";
 /* import { CustomInput } from "./State-in-React/CustomInput"; */
 /* import MovingDot from "./MovingDot"; */
 /* import { UserForm } from "./UserForm"; */
-import { Accordion } from "./State-in-React/Accordion";
+/* import { Accordion } from "./State-in-React/Accordion"; */
+import SyncedInputs from "./State-in-React/SharedInput";
 /* import FeedbackForm2 from "./FeedbackForm2"; */
 
 createRoot(document.getElementById("root")).render(
 	<StrictMode>
-		<Accordion />
+		<SyncedInputs />
 	</StrictMode>
 );
