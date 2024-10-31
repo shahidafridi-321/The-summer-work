@@ -1,10 +1,11 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 
-import { Room } from "./UseEffectWorking";
+
+import { App } from "./FromReset";
 
 createRoot(document.getElementById("root")).render(
 	<StrictMode>
-		<Room />
+		<App />
 	</StrictMode>
 );
