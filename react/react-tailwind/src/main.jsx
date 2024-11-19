@@ -16,8 +16,10 @@ import "./index.css";
 /* import Home from "./pages/Home"; */
 /* import FeedbackForm2 from "./FeedbackForm2"; */
 
+import { ClassInput, Todos } from "./classBasedComponent1";
+
 createRoot(document.getElementById("root")).render(
 	<StrictMode>
-		<Person />
+		<ClassInput name="Some tasks" />
 	</StrictMode>
 );
