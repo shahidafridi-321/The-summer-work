@@ -1,0 +1,27 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`List contains 5 animanls > Renders List  1`] = `
+<div>
+  <div>
+    <ul
+      class="animals"
+    >
+      <li>
+        Cat
+      </li>
+      <li>
+        Whale
+      </li>
+      <li>
+        Lion
+      </li>
+      <li>
+        Elephant
+      </li>
+      <li>
+        Rhino
+      </li>
+    </ul>
+  </div>
+</div>
+`;
