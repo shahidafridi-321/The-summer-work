@@ -1,5 +1,3 @@
-import React from "react";
-
 export const DefaultProfile = () => {
-	return <div>Oh , nothing here to see</div>;
+	return <p>Oh, nothing to see here!</p>;
 };

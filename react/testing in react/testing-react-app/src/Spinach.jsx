@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const Spinach = () => {
+export const Spinach = () => {
 	return (
 		<>
 			<p>Hi, I am Spinach! Popeye loves to eat me!</p>
@@ -8,5 +8,3 @@ const Spinach = () => {
 		</>
 	);
 };
-
-export default Spinach;
