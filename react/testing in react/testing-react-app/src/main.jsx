@@ -1,15 +1,26 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { Lessons } from "./Lessons";
-import { LessonsDetail } from "./LessonsDetail";
+import { Dashboard } from "./Dashboard";
+import { Overview } from "./Overview";
+import { Setting } from "./Setting";
 
 const router = createBrowserRouter([
 	{
-		path: "/lessons",
-		element: <Lessons />,
-		children: [{ path: ":topicId", element: <LessonsDetail /> }],
+		path: "dashboard",
+		element: <Dashboard />,
+		children: [
+			{
+				path: "overview",
+				element: <Overview />,
+			},
+			{
+				path: "setting",
+				element: <Setting />,
+			},
+		],
 	},
+	
 ]);
 createRoot(document.getElementById("root")).render(
 	<StrictMode>
