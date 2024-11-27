@@ -1,19 +1,20 @@
 // App.jsx
 
-import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const App = () => {
-	const [heading, setHeading] = useState("Magnificent Monkeys");
-
-	const handleClick = () => {
-		setHeading("Radical Rhinos");
-	};
-
 	return (
-		<>
-			<button onClick={handleClick}>Click Me</button>
-			<h1>{heading}</h1>
-		</>
+		<div>
+			<h1>Hello from the main page of the app!</h1>
+			<p>Here are some examples of links to other pages</p>
+			<nav>
+				<ul>
+					<li>
+						<Link to="profile">Profile page</Link>
+					</li>
+				</ul>
+			</nav>
+		</div>
 	);
 };
 
