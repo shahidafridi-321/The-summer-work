@@ -3,14 +3,22 @@ import * as ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./contact-app/index.css";
 
-import Root from "./contact-app/routes/routes";
+import Root, { loader as rootLoader } from "./contact-app/routes/routes";
 import ErrorPage from "./contact-app/ErrorPage";
+import Contact from "./contact-app/Contact";
 
 const router = createBrowserRouter([
 	{
 		path: "/",
 		element: <Root />,
 		errorElement: <ErrorPage />,
+		loader: rootLoader,
+		children: [
+			{
+				path: "contacts/:contactId",
+				element: <Contact />,
+			},
+		],
 	},
 ]);
 
