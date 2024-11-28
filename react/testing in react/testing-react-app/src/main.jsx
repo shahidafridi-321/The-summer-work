@@ -1,29 +1,20 @@
-import { StrictMode } from "react";
-import { createRoot } from "react-dom/client";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { Dashboard } from "./Dashboard";
-import { Overview } from "./Overview";
-import { Setting } from "./Setting";
+import * as React from "react";
+import * as ReactDOM from "react-dom/client";
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
+import "./contact-app/index.css";
 
 const router = createBrowserRouter([
-	{
-		path: "dashboard",
-		element: <Dashboard />,
-		children: [
-			{
-				path: "overview",
-				element: <Overview />,
-			},
-			{
-				path: "setting",
-				element: <Setting />,
-			},
-		],
-	},
-	
+  {
+    path: "/",
+    element: <div>Hello world!</div>,
+  },
 ]);
-createRoot(document.getElementById("root")).render(
-	<StrictMode>
-		<RouterProvider router={router} />
-	</StrictMode>
+
+ReactDOM.createRoot(document.getElementById("root")).render(
+  <React.StrictMode>
+    <RouterProvider router={router} />
+  </React.StrictMode>
 );
