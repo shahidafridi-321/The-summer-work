@@ -4,11 +4,13 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./contact-app/index.css";
 
 import Root from "./contact-app/routes/routes";
+import ErrorPage from "./contact-app/ErrorPage";
 
 const router = createBrowserRouter([
 	{
 		path: "/",
 		element: <Root />,
+		errorElement: <ErrorPage />,
 	},
 ]);
 
