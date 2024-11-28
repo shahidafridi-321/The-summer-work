@@ -19,7 +19,7 @@ export const Navbar = () => {
 			<ul style={styles}>
 				{navigations.map((nav) => (
 					<li key={nav}>
-						<Link>{nav}</Link>
+						<Link to={nav}>{nav}</Link>
 					</li>
 				))}
 			</ul>
