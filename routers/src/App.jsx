@@ -1,4 +1,6 @@
 import { About } from "./About";
+import { Contact } from "./Contact";
+import { ErrorPage } from "./ErrorPage";
 import { Home } from "./Home";
 import { MainLayout } from "./MainLayout";
 
@@ -7,15 +9,20 @@ const router = createBrowserRouter([
 	{
 		path: "/",
 		element: <MainLayout />,
+		errorElement: <ErrorPage />,
 		children: [
 			{
-        index:true,
+				index: true,
 				path: "Home",
 				element: <Home />,
 			},
 			{
 				path: "About",
 				element: <About />,
+			},
+			{
+				path: "Contact",
+				element: <Contact />,
 			},
 		],
 	},
