@@ -42,7 +42,6 @@ const Phonebook = () => {
 	const filteredPersons = persons.filter((person) =>
 		person.name.toLowerCase().startsWith(searchName)
 	);
-	console.log(filteredPersons);
 	
 
 	return (
