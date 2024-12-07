@@ -53,7 +53,7 @@
     {
       "id": "ca5b",
       "content": "new note vhhgz....ghh",
-      "important": false
+      "important": true
     },
     {
       "id": "237d",
@@ -73,7 +73,7 @@
     {
       "id": "c8a7",
       "content": "kGDKJD",
-      "important": false
+      "important": true
     },
     {
       "id": "16b2",
@@ -98,7 +98,7 @@
     {
       "id": "6ade",
       "content": "kGDKJD",
-      "important": false
+      "important": true
     },
     {
       "id": "5c92",
@@ -124,6 +124,16 @@
       "id": "823d",
       "content": "shhahaha",
       "important": true
+    },
+    {
+      "id": "59fa",
+      "content": "new note ....",
+      "important": false
+    },
+    {
+      "id": "557c",
+      "content": "new note ....",
+      "important": false
     }
   ]
 }
