@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Notes } from "./Notes";
-import services from "./services";
+import noteServices from "./services";
 
 import axios from "axios";
 
@@ -11,8 +11,8 @@ export const Display = () => {
 
 	useEffect(() => {
 		const getData = async () => {
-			const response = await services.getAll();
-			setNotes(response.data);
+			const data = await noteServices.getAll();
+			setNotes(data);
 		};
 		getData();
 	}, []);
@@ -33,8 +33,8 @@ export const Display = () => {
 			important: Math.random() < 0.5,
 		};
 
-		services.create(noteObject).then((response) => {
-			setNotes([...notes, response.data]);
+		noteServices.create(noteObject).then((data) => {
+			setNotes([...notes, data]);
 			setNewNote("");
 		});
 	};
@@ -42,8 +42,8 @@ export const Display = () => {
 	const toggleImportanceTo = (id) => {
 		const note = notes.find((note) => note.id === id);
 		const changedNote = { ...note, important: !note.important };
-		services.update(id, changedNote).then((response) => {
-			setNotes(notes.map((note) => (note.id === id ? response.data : note)));
+		noteServices.update(id, changedNote).then((data) => {
+			setNotes(notes.map((note) => (note.id === id ? data : note)));
 		});
 	};
 
