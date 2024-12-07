@@ -1,15 +1,19 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 const Phonebook = () => {
-	const [persons, setPersons] = useState([
-		{ name: "Arto Hellas", phone: "762626" },
-		{ name: "Ada Lovelace", phone: "39-44-5323523" },
-		{ name: "Dan Abramov", phone: "12-43-234345" },
-		{ name: "Mary Poppendieck", phone: "39-23-6423122" },
-	]);
+	const [persons, setPersons] = useState([]);
 	const [newName, setNewName] = useState("");
 	const [newNumber, setNewNumber] = useState("");
 	const [searchName, setSearchName] = useState("");
+
+	useEffect(() => {
+		const getData = async () => {
+			const response = await axios.get("http://localhost:3003/persons");
+			setPersons(response.data);
+		};
+		getData();
+	}, []);
 
 	const handleNameChange = (e) => {
 		setNewName(e.target.value);
@@ -28,7 +32,7 @@ const Phonebook = () => {
 		} else {
 			setPersons((preValue) => [
 				...preValue,
-				{ name: newName, phone: newNumber },
+				{ name: newName, number: newNumber },
 			]);
 			setNewName("");
 			setNewNumber("");
@@ -42,7 +46,6 @@ const Phonebook = () => {
 	const filteredPersons = persons.filter((person) =>
 		person.name.toLowerCase().startsWith(searchName)
 	);
-	
 
 	return (
 		<div>
@@ -70,7 +73,7 @@ const Phonebook = () => {
 			<ul>
 				{filteredPersons.map((person) => (
 					<li key={person.name}>
-						{person.name} {person.phone}
+						{person.name} {person.number}
 					</li>
 				))}
 			</ul>
