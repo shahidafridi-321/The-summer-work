@@ -1,10 +1,16 @@
 import axios from "axios";
+import { data } from "react-router-dom";
 
 const baseURL = "http://localhost:3002/notes";
 
 const getAll = async () => {
 	const response = await axios.get(baseURL);
-	return response.data;
+	const nonExistingObject = {
+		id: 1289412,
+		content: "this object is not found",
+		important: true,
+	};
+	return [...response.data, nonExistingObject];
 };
 
 const create = async (newObject) => {
@@ -13,8 +19,12 @@ const create = async (newObject) => {
 };
 
 const update = async (id, newObject) => {
-	const response = await axios.put(`${baseURL}/${id}`, newObject);
-	return response.data;
+	try {
+		const response = await axios.put(`${baseURL}/${id}`, newObject);
+		return response.data;
+	} catch (error) {
+		return error;
+	}
 };
 
 export default {

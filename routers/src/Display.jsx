@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { Notes } from "./Notes";
 import noteServices from "./services";
 
-import axios from "axios";
 
 export const Display = () => {
 	const [notes, setNotes] = useState([]);
