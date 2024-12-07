@@ -2,16 +2,19 @@ import axios from "axios";
 
 const baseURL = "http://localhost:3002/notes";
 
-const getAll = () => {
-	return axios.get(baseURL);
+const getAll = async () => {
+	const response = await axios.get(baseURL);
+	return response.data;
 };
 
-const create = (newObject) => {
-	return axios.post(baseURL, newObject);
+const create = async (newObject) => {
+	const response = await axios.post(baseURL, newObject);
+	return response.data;
 };
 
-const update = (id, newObject) => {
-	return axios.put(`${baseURL}/${id}`, newObject);
+const update = async (id, newObject) => {
+	const response = await axios.put(`${baseURL}/${id}`, newObject);
+	return response.data;
 };
 
 export default {
