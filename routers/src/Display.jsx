@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Notes } from "./Notes";
+import services from "./services";
 
 import axios from "axios";
 
@@ -10,14 +11,11 @@ export const Display = () => {
 
 	useEffect(() => {
 		const getData = async () => {
-			console.log("effect");
-			const response = await axios.get("http://localhost:3002/notes");
-			console.log("promise filled");
+			const response = await services.getAll();
 			setNotes(response.data);
 		};
 		getData();
 	}, []);
-	console.log(`render ${notes.length} notes`);
 
 	const notesToShow = showAll
 		? notes
@@ -30,15 +28,23 @@ export const Display = () => {
 	const handleSave = (e) => {
 		e.preventDefault();
 
-		setNotes((prevValue) => [
-			...prevValue,
-			{
-				content: newNote,
-				important: Math.random < 0.5,
-				id: String(notes.length + 1),
-			},
-		]);
-		setNewNote("");
+		const noteObject = {
+			content: newNote,
+			important: Math.random() < 0.5,
+		};
+
+		services.create(noteObject).then((response) => {
+			setNotes([...notes, response.data]);
+			setNewNote("");
+		});
+	};
+
+	const toggleImportanceTo = (id) => {
+		const note = notes.find((note) => note.id === id);
+		const changedNote = { ...note, important: !note.important };
+		services.update(id, changedNote).then((response) => {
+			setNotes(notes.map((note) => (note.id === id ? response.data : note)));
+		});
 	};
 
 	return (
@@ -51,7 +57,12 @@ export const Display = () => {
 			</div>
 			<ul>
 				{notesToShow.map((note) => (
-					<Notes key={note.id} note={note.content} />
+					<Notes
+						key={note.id}
+						note={note.content}
+						important={note.important}
+						toggleImportance={() => toggleImportanceTo(note.id)}
+					/>
 				))}
 			</ul>
 			<form
