@@ -84,6 +84,20 @@ const Phonebook = () => {
 		person.name.toLowerCase().startsWith(searchName.toLowerCase())
 	);
 
+	const handleDelete = async (id) => {
+		const confirm = window.confirm(
+			"Do you realy want delete this person's contact"
+		);
+		if (confirm) {
+			try {
+				await phonebookServices.deleteEntry(id);
+				setPersons((prev) => prev.filter((person) => person.id !== id));
+			} catch (error) {
+				console.error("Error deleting person:", error);
+				alert("Failed to add the contact. Please try again later.");
+			}
+		}
+	};
 	return (
 		<div>
 			<h2>Phonebook</h2>
@@ -111,7 +125,8 @@ const Phonebook = () => {
 				{filteredPersons.length > 0 ? (
 					filteredPersons.map((person) => (
 						<li key={person.id}>
-							{person.name} {person.number}
+							{person.name} {person.number}{" "}
+							<button onClick={() => handleDelete(person.id)}>Delete</button>
 						</li>
 					))
 				) : (
