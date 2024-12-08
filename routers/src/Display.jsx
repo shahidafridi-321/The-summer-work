@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { Notes } from "./Notes";
 import noteServices from "./services";
 
-
 export const Display = () => {
 	const [notes, setNotes] = useState([]);
 	const [newNote, setNewNote] = useState("new note ....");
