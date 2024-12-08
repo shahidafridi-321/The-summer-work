@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
 import phonebookServices from "./phonebookServices";
 
 const Phonebook = () => {
@@ -10,8 +9,13 @@ const Phonebook = () => {
 
 	useEffect(() => {
 		const getData = async () => {
-			const response = await phonebookServices.getAll();
-			setPersons(response);
+			try {
+				const response = await phonebookServices.getAll();
+				setPersons(response);
+			} catch (error) {
+				console.error("Error fetching phonebook data:", error);
+				alert("Failed to fetch data. Please try again later.");
+			}
 		};
 		getData();
 	}, []);
@@ -24,17 +28,49 @@ const Phonebook = () => {
 		setNewNumber(e.target.value);
 	};
 
-	const handleSubmit = (e) => {
+	const handleSubmit = async (e) => {
 		e.preventDefault();
-		const newPerson = { name: newName, number: newNumber };
-		if (persons.find((person) => person.name === newPerson.name)) {
-			alert(`${newPerson.name} is already added to phonebook`);
+		const newPerson = {
+			name: newName,
+			number: newNumber,
+		};
+		const isPersonPresent = persons.find((person) => person.name === newName);
+		if (isPersonPresent) {
+			const updatedPerson = {
+				id: isPersonPresent.id,
+				name: newName,
+				number: newNumber,
+			};
+
+			const confirm = window.confirm(
+				`${updatedPerson.name} is already added to phonebook. Do you want to replace phone number?`
+			);
+			if (confirm) {
+				try {
+					const response = await phonebookServices.update(
+						isPersonPresent.id,
+						updatedPerson
+					);
+					setPersons((prev) =>
+						prev.map((person) =>
+							person.id === updatedPerson.id ? response : person
+						)
+					);
+				} catch (error) {
+					console.error("Error updating person:", error);
+					alert("Failed to update the contact. Please try again later.");
+				}
+			}
 			setNewName("");
 			setNewNumber("");
 		} else {
-			phonebookServices.create(newPerson).then((response) => {
+			try {
+				const response = await phonebookServices.create(newPerson);
 				setPersons((prePersons) => [...prePersons, response]);
-			});
+			} catch (error) {
+				console.error("Error adding person:", error);
+				alert("Failed to add the contact. Please try again later.");
+			}
 			setNewName("");
 			setNewNumber("");
 		}
@@ -45,7 +81,7 @@ const Phonebook = () => {
 	};
 
 	const filteredPersons = persons.filter((person) =>
-		person.name.toLowerCase().startsWith(searchName)
+		person.name.toLowerCase().startsWith(searchName.toLowerCase())
 	);
 
 	return (
@@ -72,11 +108,15 @@ const Phonebook = () => {
 			</form>
 			<h2>Numbers</h2>
 			<ul>
-				{filteredPersons.map((person) => (
-					<li key={person.name}>
-						{person.name} {person.number}
-					</li>
-				))}
+				{filteredPersons.length > 0 ? (
+					filteredPersons.map((person) => (
+						<li key={person.id}>
+							{person.name} {person.number}
+						</li>
+					))
+				) : (
+					<p>No Matches Found</p>
+				)}
 			</ul>
 		</div>
 	);
