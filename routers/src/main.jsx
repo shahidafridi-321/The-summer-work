@@ -5,6 +5,6 @@ import Phonebook from "./PhoneBook";
 
 createRoot(document.getElementById("root")).render(
 	<StrictMode>
-		<Display />
+		<Phonebook />
 	</StrictMode>
 );
