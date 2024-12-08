@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import phonebookServices from "./phonebookServices";
 
 const Phonebook = () => {
 	const [persons, setPersons] = useState([]);
@@ -9,8 +10,8 @@ const Phonebook = () => {
 
 	useEffect(() => {
 		const getData = async () => {
-			const response = await axios.get("http://localhost:3003/persons");
-			setPersons(response.data);
+			const response = await phonebookServices.getAll();
+			setPersons(response);
 		};
 		getData();
 	}, []);
@@ -31,11 +32,9 @@ const Phonebook = () => {
 			setNewName("");
 			setNewNumber("");
 		} else {
-			axios
-				.post("http://localhost:3003/persons", newPerson)
-				.then((response) => {
-					setPersons((prePersons) => [...prePersons, response.data]);
-				});
+			phonebookServices.create(newPerson).then((response) => {
+				setPersons((prePersons) => [...prePersons, response]);
+			});
 			setNewName("");
 			setNewNumber("");
 		}
