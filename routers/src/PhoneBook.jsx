@@ -25,15 +25,17 @@ const Phonebook = () => {
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		if (persons.find((person) => person.name === newName)) {
-			alert(`${newName} is already added to phonebook`);
+		const newPerson = { name: newName, number: newNumber };
+		if (persons.find((person) => person.name === newPerson.name)) {
+			alert(`${newPerson.name} is already added to phonebook`);
 			setNewName("");
 			setNewNumber("");
 		} else {
-			setPersons((preValue) => [
-				...preValue,
-				{ name: newName, number: newNumber },
-			]);
+			axios
+				.post("http://localhost:3003/persons", newPerson)
+				.then((response) => {
+					setPersons((prePersons) => [...prePersons, response.data]);
+				});
 			setNewName("");
 			setNewNumber("");
 		}
