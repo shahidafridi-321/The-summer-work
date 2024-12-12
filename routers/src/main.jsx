@@ -8,6 +8,6 @@ import { Posts } from "./FetchingData/Posts";
 
 createRoot(document.getElementById("root")).render(
 	<StrictMode>
-		<Posts />
+		<Display  />
 	</StrictMode>
 );

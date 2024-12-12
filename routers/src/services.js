@@ -1,7 +1,6 @@
 import axios from "axios";
-import { data } from "react-router-dom";
 
-const baseURL = "http://localhost:3002/notes";
+const baseURL = "http://localhost:3005/";
 
 const getAll = async () => {
 	const response = await axios.get(baseURL);
