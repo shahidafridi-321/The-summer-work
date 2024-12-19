@@ -17,9 +17,10 @@ import "./index.css";
 /* import FeedbackForm2 from "./FeedbackForm2"; */
 
 import { ClassInput } from "./classBasedComponent1";
+import { Navbar } from "./Navbar";
 
 createRoot(document.getElementById("root")).render(
 	<StrictMode>
-		<ClassInput name="Some tasks" />
+		<Navbar/>
 	</StrictMode>
 );
