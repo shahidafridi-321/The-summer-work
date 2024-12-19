@@ -21,6 +21,6 @@ import { Navbar } from "./Navbar";
 
 createRoot(document.getElementById("root")).render(
 	<StrictMode>
-		<Navbar/>
+		<Navbar />
 	</StrictMode>
 );
